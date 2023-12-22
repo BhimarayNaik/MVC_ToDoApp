@@ -9,7 +9,6 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-
 @Data
 @Entity
 public class ToDoUser {
@@ -23,5 +22,4 @@ public class ToDoUser {
 	String gender;
 	LocalDate dob;
 	int age;
-	
 }

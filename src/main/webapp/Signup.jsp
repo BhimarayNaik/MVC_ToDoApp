@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +16,11 @@ div {
 }
 </style>
 	<div>
+	
 		<h1>Enter Details</h1>
+			
 		<form action="signup" method="post">
+		
 			<fieldset>
 				<legend>SignUp Here</legend>
 				<table>
@@ -28,6 +31,7 @@ div {
 					<tr>
 						<th>Email :</th>
 						<th><input type="email" name="email" required></th>
+						<th><h3 style="color: red">${email}</h3></th>
 					</tr>
 					<tr>
 						<th>Password :</th>
@@ -40,6 +44,7 @@ div {
 					<tr>
 						<th>Date Of Birth :</th>
 						<th><input type="date" name="date" required></th>
+						<th><h5 style="color:red">${msg}</h5></th>
 					</tr>
 					<tr>
 						<th>Gender :</th>
