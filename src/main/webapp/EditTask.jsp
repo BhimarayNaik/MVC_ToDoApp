@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +20,17 @@ div {
 <form action="update-task" method="post">
 		<fieldset>
 			<legend>Enter Task Here,</legend>
-			<input type="hidden" name="id" value="">
+			<input type="hidden" name="id" value="${task.id}">
 			<table border="1">
 
 
 				<tr>
 					<th>Task Name :</th>
-					<td><input type="text" value="" name="name"></td>
+					<td><input type="text" value="${task.name}" name="name"></td>
 				</tr>
 				<tr>
 					<th>Task Description :</th>
-					<td><input type="text" value="" name="description"></td>
+					<td><input type="text" value="${task.description}" name="description"></td>
 				</tr>
 				<th><button>Update</button></th>
 				<th><button type="reset">Cancel</button></th>

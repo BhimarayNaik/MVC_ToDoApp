@@ -61,4 +61,12 @@ return service.changeStatus(session,id,map);
 public String deleteTask(@RequestParam int id,HttpSession session,ModelMap map) {
 return service.deleteTask(session,id,map);
 }
+@GetMapping("/edit")
+public String loadEdit(@RequestParam int id,HttpSession session,ModelMap map) {
+return service.loadEdit(session,id,map);
+}
+@PostMapping("/update-task")
+public String updateTask(ToDoTask task,HttpSession session, ModelMap map) {
+	return service.updateTask(task,session,map);
+}
 }

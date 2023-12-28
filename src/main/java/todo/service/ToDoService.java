@@ -136,5 +136,30 @@ public class ToDoService {
 			return "Home";
 		}
 	}
+	public String loadEdit(HttpSession session,int id,ModelMap map) {
+		ToDoUser user = (ToDoUser) session.getAttribute("todouser");
+		if (user == null) {
+			map.put("fail", "Invalid Session");
+			return "Login";
+		} else{
+			ToDoTask task=dao.fetchTaskById(id);
+			map.put("task",task);
+			return "EditTask";
+		}
+	}
+	public String updateTask(ToDoTask task,HttpSession session, ModelMap map) {
+		ToDoUser user = (ToDoUser) session.getAttribute("todouser");
+		if (user == null) {
+			map.put("fail", "Invalid Session");
+			return "Login";
+		} else{
+			task.setUser(user);
+			task.setCreatedTime(LocalDateTime.now());
+			dao.updateTask(task);
+			map.put("list", dao.fetchAllTask(user.getId()));
+			map.put("pass", "Task Updated Success");
+			return "Home";
+		}
+}
 }
 	
