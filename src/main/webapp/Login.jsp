@@ -16,7 +16,9 @@ div {
 </style>
 <body>
 	<div>
-		<h1 style="color: green">${pass}</h1>
+	    <h2 style="color:red">${fail}</h2>
+		<h1 style="color: green">${account}</h1>
+		<h1 style="color: green">${logout}</h1>
 		<h1>${cred}</h1>
 		<h1>ToDo Login</h1>
 	
@@ -27,13 +29,15 @@ div {
 					<tr>
 						<th>Email :</th>
 						<th><input type="email" name="email"></th>
+						<th><h3 style="color:red">${email}</h3></th>
 					</tr>
 					<tr>
 						<th>Password :</th>
-						<th><input type="text" name="pass"></th>
+						<th><input type="text" name="password"></th>
+						<th><h3 style="color:red">${password}</h3></th>
 					</tr>
 					<tr>
-						<th><a href="home"><button>Login</button></a></th>
+						<th><a href=""><button>Login</button></a></th>
 						<th><a href=""><button type="reset">Cancel</button></a></th>
 					</tr>
 					<tr>

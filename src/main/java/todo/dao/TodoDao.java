@@ -11,7 +11,7 @@ import javax.persistence.Query;
 
 import java.util.List;
 import todo.dto.ToDoUser;
-
+import todo.dto.ToDoTask;
 @Component
 public class TodoDao {
 	
@@ -26,31 +26,34 @@ public class TodoDao {
 	public List<ToDoUser> findByEmail(String email) {
 	return manager.createQuery("select x from ToDoUser x where email=?1").setParameter(1, email).getResultList();
 	}
+	public void saveTask(ToDoTask task) {
+		manager.getTransaction().begin();
+		manager.persist(task);
+		manager.getTransaction().commit();
 	}
-//	public void saveTask(Task task) {
-//		manager.getTransaction().begin();
-//		manager.persist(task);
-//		manager.getTransaction().commit();
-//	}
-//	public void updateUser(ToDoUser dto) {
-//		manager.getTransaction().begin();
-//		manager.merge(dto);
-//		manager.getTransaction().commit();	
-//	}
-//	public Task findTaskById(int id) {
-//		return manager.find(Task.class, id);
-//	}
-//	public void updateTask(Task task) {
-//		manager.getTransaction().begin();
-//		manager.merge(task);
-//		manager.getTransaction().commit();
-//	}
-//	public ToDoUser findById(int id) {
-//		return manager.find(ToDoUser.class,id);	
-//	}
-//	public void deleteTask(Task task) {
-//		manager.getTransaction().begin();
-//		manager.remove(task);
-//		manager.getTransaction().commit();
-//	}
+	public List<ToDoTask> fetchAllTask(int id) {
+		return manager.createQuery("select x from ToDoTask x where user_id=?1").setParameter(1, id).getResultList();
+	}
+	public ToDoTask fetchTaskById(int id) {
+		return manager.find(ToDoTask.class,id);
+	}
+	public void updateUser(ToDoTask task) {
+		manager.getTransaction().begin();
+		manager.merge(task);
+		manager.getTransaction().commit();	
+	}
+	public void deleteTask(ToDoTask task) {
+		manager.getTransaction().begin();
+		manager.remove(task);
+		manager.getTransaction().commit();
+	}
+	public void updateTask(ToDoTask task) {
+		manager.getTransaction().begin();
+		manager.merge(task);
+		manager.getTransaction().commit();
+	}
+}
 
+	
+	
+	

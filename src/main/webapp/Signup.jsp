@@ -16,11 +16,8 @@ div {
 }
 </style>
 	<div>
-	
 		<h1>Enter Details</h1>
-			
 		<form action="signup" method="post">
-		
 			<fieldset>
 				<legend>SignUp Here</legend>
 				<table>
